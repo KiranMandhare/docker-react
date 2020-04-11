@@ -3,7 +3,7 @@ sudo: required
 services:
   - docker
 
-before_intsall:
+before_install:
   - docker build -t kiranmandhare/docker-react -f Dockerfile.dev .
 
 script:
