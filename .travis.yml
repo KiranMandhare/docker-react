@@ -7,3 +7,13 @@ before_intsall:
   - docker build -t kiranmandhare/docker-react -f Dockerfile.dev .
 script:
   - docker run -e CI=true kiranmandhare/docker-react npm run test
+deploy:
+  provider: elasticbeanstalk
+  region: "us-east-2"
+  env: "Docker-env"
+  bucket_name: "elasticbeanstalk-us-east-2-440754129479"
+  bucket_path: "docker"
+  on:
+    branch: master
+    access_key_id: "$access_key"
+    secret_key_id: "$secret_key"
